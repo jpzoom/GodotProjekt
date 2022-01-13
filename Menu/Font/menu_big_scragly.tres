@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Menu/Font/RUBBBB__.TTF" type="DynamicFontData" id=1]
+
+[resource]
+size = 14
+outline_color = Color( 0.0901961, 0.647059, 0.396078, 1 )
+font_data = ExtResource( 1 )
+

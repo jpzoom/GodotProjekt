@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menu/Buttons/NewGameButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menu/Buttons/bttn_normal.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Buttons/bttn_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Buttons/bttn_hover.png" type="Texture" id=4]
+[ext_resource path="res://Menu/Buttons/MenuButton.gd" type="Script" id=5]
+[ext_resource path="res://Menu/Buttons/BackToMainMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Menu/Buttons/QuitButton.tscn" type="PackedScene" id=7]
+
+[node name="Buttons" type="VBoxContainer"]
+margin_right = 180.0
+margin_bottom = 171.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 3
+alignment = 1
+
+[node name="NewGameButton" type="TextureButton" parent="." instance=ExtResource( 1 )]
+pause_mode = 2
+margin_right = 180.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 180, 47 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+script = ExtResource( 5 )
+scene_to_load = "res://Game/Game_scene.tscn"
+
+[node name="MenuButton" type="TextureButton" parent="." instance=ExtResource( 6 )]
+pause_mode = 2
+margin_top = 58.0
+margin_right = 180.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 180, 47 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+script = ExtResource( 5 )
+scene_to_load = "res://Menu/TitleScreen.tscn"
+
+[node name="QuitButton" type="TextureButton" parent="." instance=ExtResource( 7 )]
+pause_mode = 2
+margin_top = 116.0
+margin_right = 180.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 180, 47 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+script = ExtResource( 5 )
+scene_to_load = "res://Menu/TitleScreen.tscn"
+
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_QuitButton_pressed"]

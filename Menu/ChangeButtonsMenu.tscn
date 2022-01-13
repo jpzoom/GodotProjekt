@@ -1,0 +1,172 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Menu/ChangeButtonsMenu.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Buttons/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menu/Buttons/PlayButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/KeyChangePanel.gd" type="Script" id=4]
+[ext_resource path="res://Menu/Font/text_font.tres" type="DynamicFont" id=5]
+
+[node name="ChangeButtonsMenu" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -175.0
+margin_right = 320.0
+margin_bottom = 175.0
+script = ExtResource( 1 )
+
+[node name="Column" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="Title" parent="Column" instance=ExtResource( 2 )]
+margin_right = 600.0
+rect_scale = Vector2( 1, 1 )
+text = "Controls"
+
+[node name="Header" type="HBoxContainer" parent="Column"]
+margin_top = 51.0
+margin_right = 600.0
+margin_bottom = 51.0
+
+[node name="ScrollContainer" type="VBoxContainer" parent="Column"]
+margin_top = 55.0
+margin_right = 600.0
+margin_bottom = 251.0
+size_flags_vertical = 3
+
+[node name="move_up" type="Control" parent="Column/ScrollContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="Up" type="Label" parent="Column/ScrollContainer/move_up"]
+margin_top = 10.0
+margin_right = 72.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Up"
+
+[node name="Button" type="Button" parent="Column/ScrollContainer/move_up"]
+margin_left = 72.0
+margin_top = 7.0
+margin_right = 172.0
+margin_bottom = 27.0
+
+[node name="move_down" type="Control" parent="Column/ScrollContainer"]
+margin_top = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="Down" type="Label" parent="Column/ScrollContainer/move_down"]
+margin_top = 10.0
+margin_right = 72.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "Down"
+
+[node name="Button" type="Button" parent="Column/ScrollContainer/move_down"]
+margin_left = 72.0
+margin_top = 6.0
+margin_right = 172.0
+margin_bottom = 26.0
+
+[node name="move_left" type="Control" parent="Column/ScrollContainer"]
+margin_top = 80.0
+margin_bottom = 80.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="Left" type="Label" parent="Column/ScrollContainer/move_left"]
+margin_top = 12.0
+margin_right = 72.0
+margin_bottom = 26.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "Left"
+
+[node name="Button" type="Button" parent="Column/ScrollContainer/move_left"]
+margin_left = 72.0
+margin_top = 6.0
+margin_right = 172.0
+margin_bottom = 26.0
+
+[node name="move_right" type="Control" parent="Column/ScrollContainer"]
+margin_top = 120.0
+margin_bottom = 120.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="Right" type="Label" parent="Column/ScrollContainer/move_right"]
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "Right"
+
+[node name="Button" type="Button" parent="Column/ScrollContainer/move_right"]
+margin_left = 72.0
+margin_top = 12.0
+margin_right = 172.0
+margin_bottom = 32.0
+
+[node name="attack" type="Control" parent="Column/ScrollContainer"]
+margin_top = 160.0
+margin_bottom = 160.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="Attack" type="Label" parent="Column/ScrollContainer/attack"]
+margin_top = 21.0
+margin_right = 72.0
+margin_bottom = 35.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "Attack"
+
+[node name="Button" type="Button" parent="Column/ScrollContainer/attack"]
+margin_left = 72.0
+margin_top = 16.0
+margin_right = 172.0
+margin_bottom = 36.0
+
+[node name="AcceptButton" parent="Column" instance=ExtResource( 3 )]
+margin_left = 210.0
+margin_top = 255.0
+margin_right = 390.0
+margin_bottom = 310.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="KeyChangePanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.490196 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -224.0
+margin_top = -111.0
+margin_right = 224.0
+margin_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="KeyChangePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+text = "Press a key for this action"
+align = 1
+valign = 1
+

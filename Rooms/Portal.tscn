@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://portalfixed.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Portal.gd" type="Script" id=2]
+[ext_resource path="res://Rooms/PortalArea2D.gd" type="Script" id=3]
+[ext_resource path="res://Music and effects/cast6.wav" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Portal_Twirl"
+length = 0.4
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Portal_idle"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 14 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Startup_Portal"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+
+[node name="Portal" type="Sprite"]
+position = Vector2( 18, 155 )
+texture = ExtResource( 1 )
+hframes = 15
+frame = 14
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Portal_Twirl = SubResource( 1 )
+anims/Portal_idle = SubResource( 2 )
+anims/Startup_Portal = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"portal_area",
+]]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource( 4 )
+volume_db = -22.082
+
+[connection signal="no_enemies" from="." to="Area2D" method="_on_Portal_no_enemies"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

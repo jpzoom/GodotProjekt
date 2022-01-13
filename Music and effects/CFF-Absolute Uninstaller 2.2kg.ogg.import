@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/CFF-Absolute Uninstaller 2.2kg.ogg-a6413be2d349aa974ff867e8b856e169.oggstr"
+
+[deps]
+
+source_file="res://Music and effects/CFF-Absolute Uninstaller 2.2kg.ogg"
+dest_files=[ "res://.import/CFF-Absolute Uninstaller 2.2kg.ogg-a6413be2d349aa974ff867e8b856e169.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

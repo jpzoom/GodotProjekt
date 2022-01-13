@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/argh.wav-1e5549485211b0beff70d3ff1204e4c6.sample"
+
+[deps]
+
+source_file="res://Music and effects/argh.wav"
+dest_files=[ "res://.import/argh.wav-1e5549485211b0beff70d3ff1204e4c6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

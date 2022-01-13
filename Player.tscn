@@ -1,0 +1,353 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://playermovement_state_mach.gd" type="Script" id=1]
+[ext_resource path="res://knight_complete_grey.png" type="Texture" id=2]
+[ext_resource path="res://HP_script.gd" type="Script" id=3]
+[ext_resource path="res://Sword.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Music and effects/argh.wav" type="AudioStream" id=5]
+[ext_resource path="res://shadow.png" type="Texture" id=6]
+[ext_resource path="res://Music and effects/growl.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "dead"
+length = 0.3
+
+[sub_resource type="Animation" id=2]
+length = 2.46
+loop = true
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.01, 2.04, 2.07, 2.1, 2.13, 2.16, 2.19, 2.22, 2.25, 2.28, 2.31, 2.34, 2.37, 2.4, 2.43 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 3, 2, 1, 0, 1, 2, 3, 4, 3, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.46
+loop = true
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.01, 2.04, 2.07, 2.1, 2.13, 2.16, 2.19, 2.22, 2.25, 2.28, 2.31, 2.34, 2.37, 2.4, 2.43 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 8, 7, 6, 5, 6, 7, 8, 9, 8, 7, 6 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.06
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 45 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 2.46
+loop = true
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.01, 2.04, 2.07, 2.1, 2.13, 2.16, 2.19, 2.22, 2.25, 2.28, 2.31, 2.34, 2.37, 2.4, 2.43 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 13, 12, 11, 10, 11, 12, 13, 14, 13, 12, 11 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.06
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 25 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.61
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 35, 36, 37, 38, 39, 40, 41, 42, 43, 44 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.61
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 45, 46, 47, 48, 49, 50, 51, 52, 53, 54 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.61
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.61
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 55, 56, 57, 58, 59, 60, 61, 62, 63, 64 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.61
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 25, 26, 27, 28, 29, 30, 31, 32, 33, 34 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("EffectsAnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Flash_anim" ],
+"method": "play"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../../Damaged")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../Damaged:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=14]
+radius = 8.0
+height = 0.135597
+
+[sub_resource type="CapsuleShape2D" id=15]
+radius = 9.0
+height = 6.0
+
+[node name="Player" type="Node2D"]
+position = Vector2( 320, 192 )
+z_index = 2
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 0.366257, -6.12209 )
+script = ExtResource( 1 )
+speedPercent = 0.7
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( -0.366261, 0.122081 )
+z_index = 1
+texture = ExtResource( 2 )
+vframes = 7
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D/Sprite"]
+anims/dead = SubResource( 1 )
+anims/idle_down = SubResource( 2 )
+anims/idle_drdwn = SubResource( 3 )
+anims/idle_drup = SubResource( 4 )
+anims/idle_right = SubResource( 5 )
+anims/idle_up = SubResource( 6 )
+anims/walk_diagonally_down_right = SubResource( 7 )
+anims/walk_diagonally_up_right = SubResource( 8 )
+anims/walk_down = SubResource( 9 )
+anims/walk_right = SubResource( 10 )
+anims/walk_up = SubResource( 11 )
+
+[node name="HP" type="Node" parent="KinematicBody2D/Sprite/AnimationPlayer"]
+script = ExtResource( 3 )
+
+[node name="EffectsAnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D/Sprite"]
+anims/Damage_anim = SubResource( 12 )
+anims/Flash_anim = SubResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -1.36627, 11.1221 )
+z_index = 1
+shape = SubResource( 14 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
+smoothing_enabled = true
+smoothing_speed = 8.0
+
+[node name="WeaponPivot" type="Node2D" parent="KinematicBody2D"]
+position = Vector2( -0.366272, 14.1221 )
+rotation = 3.14159
+
+[node name="Weapon" parent="KinematicBody2D/WeaponPivot" instance=ExtResource( 4 )]
+rotation = -1.6057
+
+[node name="RayPivot" type="Node2D" parent="KinematicBody2D"]
+position = Vector2( -0.366257, 6.12209 )
+rotation = -1.5708
+
+[node name="RayCast2D" type="RayCast2D" parent="KinematicBody2D/RayPivot"]
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="Hurtbox" type="Area2D" parent="KinematicBody2D"]
+position = Vector2( -1.36627, 7.12209 )
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Hurtbox"]
+position = Vector2( 0, 2 )
+shape = SubResource( 15 )
+
+[node name="Death" type="AudioStreamPlayer" parent="KinematicBody2D"]
+pause_mode = 2
+stream = ExtResource( 5 )
+volume_db = -20.0
+
+[node name="Shadow" type="Sprite" parent="KinematicBody2D"]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( -0.366272, 21.1221 )
+texture = ExtResource( 6 )
+
+[node name="AttackTimer" type="Timer" parent="KinematicBody2D"]
+wait_time = 0.3
+
+[node name="Damaged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0
+
+[connection signal="noHealth" from="KinematicBody2D/Sprite/AnimationPlayer/HP" to="KinematicBody2D" method="_on_HP_noHealth"]
+[connection signal="tookDamage" from="KinematicBody2D/Sprite/AnimationPlayer/HP" to="KinematicBody2D" method="_on_HP_tookDamage"]
+[connection signal="animation_finished" from="KinematicBody2D/Sprite/EffectsAnimationPlayer" to="KinematicBody2D/Sprite/AnimationPlayer/HP" method="_on_EffectsAnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="KinematicBody2D/Sprite/EffectsAnimationPlayer" to="KinematicBody2D" method="_on_EffectsAnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="KinematicBody2D/Sprite/EffectsAnimationPlayer" to="KinematicBody2D" method="_on_EffectsAnimationPlayer_animation_started"]
+[connection signal="attackFinished" from="KinematicBody2D/WeaponPivot/Weapon" to="KinematicBody2D" method="_on_Weapon_attackFinished"]
+[connection signal="body_entered" from="KinematicBody2D/Hurtbox" to="KinematicBody2D" method="_on_Area2D_body_entered"]

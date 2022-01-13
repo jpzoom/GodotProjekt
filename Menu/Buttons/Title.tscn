@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu/Font/title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menu/Buttons/title_animation.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "TitleAnim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1.1, 2 ),
+"transitions": PoolRealArray( 1.8025, 1.41421, 0.615572, 0.353554 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 0.908974, 0.908974 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Title" type="Label"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -315.0
+margin_right = 315.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.992093, 0.992093 )
+rect_pivot_offset = Vector2( 315, 22 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0.611765, 0.188235, 0.854902, 1 )
+custom_constants/shadow_offset_x = -2
+custom_constants/shadow_offset_y = 2
+text = "GOBLIN-BOY"
+align = 1
+valign = 1
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/TitleAnim = SubResource( 1 )
+

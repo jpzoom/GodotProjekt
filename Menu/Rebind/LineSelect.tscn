@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://LineSelect.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Font/smaller_text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Menu/Buttons/sm_bttn_normal.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Buttons/sm_bttn_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Menu/Buttons/sm_bttn_hover.png" type="Texture" id=5]
+[ext_resource path="res://Menu/Font/menu_big_scragly.tres" type="DynamicFont" id=6]
+
+[node name="LineSelect" type="HBoxContainer"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -15.0
+margin_bottom = 17.0
+alignment = 1
+script = ExtResource( 1 )
+
+[node name="Akcija" type="Label" parent="."]
+margin_top = 11.0
+margin_right = 233.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Up"
+align = 1
+valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="Akcija"]
+self_modulate = Color( 1, 1, 1, 0.552941 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_right = -5.0
+color = Color( 0.231373, 0.231373, 0.231373, 1 )
+
+[node name="Tipka" type="Label" parent="."]
+margin_left = 237.0
+margin_top = 11.0
+margin_right = 470.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "W"
+align = 1
+valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="Tipka"]
+self_modulate = Color( 1, 1, 1, 0.552941 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -5.0
+color = Color( 0.231373, 0.231373, 0.231373, 1 )
+
+[node name="Izmjena" type="TextureButton" parent="."]
+margin_left = 474.0
+margin_right = 639.0
+margin_bottom = 35.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Izmjena"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color_shadow = Color( 0.321569, 0.764706, 0.231373, 1 )
+text = "Izmjeni"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Izmjena" to="." method="_on_TextureButton_pressed"]

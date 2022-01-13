@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Unreal Super Hero 3 by Kenet & Rez.ogg-90c986a30d2ed9999b63d29e61ac4a07.oggstr"
+
+[deps]
+
+source_file="res://Music and effects/Unreal Super Hero 3 by Kenet & Rez.ogg"
+dest_files=[ "res://.import/Unreal Super Hero 3 by Kenet & Rez.ogg-90c986a30d2ed9999b63d29e61ac4a07.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

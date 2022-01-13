@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Menu/title_screen.gd" type="Script" id=1]
+[ext_resource path="res://backgroundformainmenu.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Buttons/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/Buttons/NewGameButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menu/Buttons/OptionsButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menu/Buttons/QuitButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Menu/Buttons/QuitButton.gd" type="Script" id=7]
+[ext_resource path="res://Menu/Font/times.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Fade_in/FadeIn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Music and effects/Unreal Super Hero 3 by Kenet & Rez.ogg" type="AudioStream" id=10]
+[ext_resource path="res://fullscreen toggler.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_mipmaps = true
+font_data = ExtResource( 8 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -175.0
+margin_right = 320.0
+margin_bottom = 175.0
+texture = ExtResource( 2 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 50.0
+margin_top = 20.0
+margin_right = 680.0
+margin_bottom = 340.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Title" parent="Menu" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 630.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 51.0
+margin_right = 630.0
+margin_bottom = 164.0
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 630.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 3
+alignment = 1
+
+[node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+margin_bottom = 55.0
+
+[node name="Label" parent="Menu/CenterRow/Buttons/NewGameButton" index="0"]
+text = "Nova Igra"
+
+[node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
+margin_top = 58.0
+margin_bottom = 113.0
+scene_to_load = "res://Menu/Rebind/controls.tscn"
+
+[node name="Label" parent="Menu/CenterRow/Buttons/OptionsButton" index="0"]
+text = "Kontrole"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 6 )]
+margin_top = 168.0
+margin_bottom = 223.0
+script = ExtResource( 7 )
+
+[node name="Label" parent="Menu/QuitButton" index="0"]
+text = "Izlaz"
+
+[node name="Potpis" type="Label" parent="Menu"]
+margin_top = 227.0
+margin_right = 630.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.611765, 0.188235, 0.854902, 1 )
+custom_constants/shadow_offset_x = -1
+custom_constants/shadow_offset_y = 1
+text = "Josip Panić, Veleučilište u Rijeci, 2019."
+align = 1
+valign = 2
+
+[node name="FadeIn" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -20.0
+autoplay = true
+
+[node name="fullscreen toggler" parent="." instance=ExtResource( 11 )]
+
+[connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_QuitButton_pressed"]
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
+
+[editable path="Menu/CenterRow/Buttons/NewGameButton"]
+
+[editable path="Menu/CenterRow/Buttons/OptionsButton"]
+
+[editable path="Menu/QuitButton"]
